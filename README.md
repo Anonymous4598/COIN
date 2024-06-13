@@ -8,8 +8,7 @@ LOC is a graph contrastive learning framework with unified learnable augment in 
 
 ## The statistics of datasets
 
-| 数据集    | 节点数 
-| 边数    | 特征维度 | 类别数 | 异质度 | 稀疏度  |
+| 数据集    | 节点数 | 边数    | 特征维度 | 类别数 | 异质度 | 稀疏度  |
 | --------- | ------ | ------- | -------- | ------ | ------ | ------- |
 | Cora      | 2,708  | 5,429   | 1,433    | 7      | 0.19   | 0.00074 |
 | CiteSeer  | 3,327  | 4,732   | 3,703    | 6      | 0.26   | 0.00042 |
