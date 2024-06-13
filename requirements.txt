@@ -1,0 +1,15 @@
+dgl==1.1.0+cu113
+matplotlib==3.7.1
+networkx==3.1
+numba==0.57.0
+ogb==1.3.6
+optuna==3.2.0
+scikit-learn==1.2.2
+scipy==1.10.1
+seaborn==0.12.2
+torch==1.12.0
+torch-cluster @ file:///home/linzy/code/GSSL/torch_cluster-1.6.0%2Bpt112cu113-cp38-cp38-linux_x86_64.whl
+torch-geometric==2.0.1
+torch-scatter @ file:///home/linzy/code/GSSL/torch_scatter-2.1.0%2Bpt112cu113-cp38-cp38-linux_x86_64.whl
+torch-sparse @ file:///home/linzy/code/GSSL/torch_sparse-0.6.15%2Bpt112cu113-cp38-cp38-linux_x86_64.whl
+torch-spline-conv @ file:///home/linzy/code/GSSL/torch_spline_conv-1.2.1%2Bpt112cu113-cp38-cp38-linux_x86_64.whl
