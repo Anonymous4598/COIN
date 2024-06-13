@@ -20,7 +20,7 @@ LOC is a graph contrastive learning framework with unified learnable augment in 
 | Chameleon | 2,277  | 36,101  | 2,325    | 5      | 0.77   | 0.00696 |
 | Squirrel  | 5,201  | 217,073 | 2,089    | 5      | 0.78   | 0.00802 |
 
-**## Supplymentary results**
+## Supplymentary results
 
 1. Time cost  on RTX A6000 
 
@@ -33,9 +33,9 @@ LOC is a graph contrastive learning framework with unified learnable augment in 
 
 
 
-**## Requirement**
+## Requirement
 
-Code is tested in ***\*Python 3.8.10\****. You can prepare the environment for running LOC follow the command:
+Code is tested in *\*Python 3.8.10\. You can prepare the environment for running LOC follow the command:
 
 
 
@@ -47,11 +47,11 @@ pip install -r requirements.txt
 
 
 
-**## Quick Strat**
+## Quick Strat
 
 
 
-**### Make directories to records the outputs.**
+### Make directories to records the outputs.
 
 
 
@@ -65,7 +65,7 @@ mkdir -p ./outputs/${ds}
 
 
 
-**### Prepare data.**
+### Prepare data.
 
 This step is to prepare the data and reuse the results of the decomposition of the topological matrix A and the node feature matrix X. The decomposition result of the ```$ds``` dataset are stored in ```./data/npy``` by using the following command:
 
@@ -79,7 +79,7 @@ nohup python decompose_A_X.py --dataset $ds
 
 
 
-**### How to run LOC with hyperparameters search?**
+### How to run LOC with hyperparameters search?
 
 
 
@@ -99,7 +99,7 @@ CUDA_VISIBLE_DEVICES=$gpu_id, nohup python LOC.py --dataset $ds --botune &> ./ou
 
 
 
-**### How to run LOC with cetain hyperparameters?**
+### How to run LOC with cetain hyperparameters?
 
 
 
