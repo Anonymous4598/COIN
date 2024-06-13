@@ -20,14 +20,14 @@ LOC is a graph contrastive learning framework with unified learnable augment in 
 | Chameleon | 2,277  | 36,101  | 2,325    | 5      | 0.77   | 0.00696 |
 | Squirrel  | 5,201  | 217,073 | 2,089    | 5      | 0.78   | 0.00802 |
 
-## Supplymentary results
+## Supplementary results
 
 1. Time cost  on RTX A6000 
 
-| Stage             | Cora | CiteSeer | PubMed | Photo | Computers | CS    | Phy   |
-| ----------------- | ---- | -------- | ------ | ----- | --------- | ----- | ----- |
-| preprocessing (s) | 0.52 | 0.99     | 71.53  | 7.10  | 31.44     | 19.56 | 15.24 |
-| training (s)      | 0.56 | 0.22     | 3.30   | 1.49  | 1.34      | 4.28  | 16.42 |
+| Stage             | Cora | CiteSeer | PubMed | Photo | Computers | CS    | Phy   | Chameleon | Squirrel |
+| ----------------- | ---- | -------- | ------ | ----- | --------- | ----- | ----- | --------- | -------- |
+| preprocessing (s) | 0.52 | 0.99     | 71.53  | 7.10  | 31.44     | 19.56 | 15.24 | 0.29      | 2.38     |
+| training (s)      | 0.56 | 0.22     | 3.30   | 1.49  | 1.34      | 4.28  | 16.42 | 0.04      | 0.14     |
 
 2. To be continued...
 
