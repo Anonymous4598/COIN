@@ -8,7 +8,8 @@ LOC is a graph contrastive learning framework with unified learnable augment in 
 
 ## The statistics of datasets
 
-| 数据集    | 节点数 | 边数    | 特征维度 | 类别数 | 异质度 | 稀疏度  |
+| 数据集    | 节点数 
+| 边数    | 特征维度 | 类别数 | 异质度 | 稀疏度  |
 | --------- | ------ | ------- | -------- | ------ | ------ | ------- |
 | Cora      | 2,708  | 5,429   | 1,433    | 7      | 0.19   | 0.00074 |
 | CiteSeer  | 3,327  | 4,732   | 3,703    | 6      | 0.26   | 0.00042 |
@@ -39,11 +40,11 @@ Code is tested in ***\*Python 3.8.10\****. You can prepare the environment for r
 
 
 
-\```bash
+```bash
 
 pip install -r requirements.txt
 
-\```
+```
 
 
 
@@ -57,11 +58,11 @@ pip install -r requirements.txt
 
 Before you runing LOC.py on dataset ```$ds``` , you should make directories for keeping output by using the following command:
 
-\```bash
+```bash
 
 mkdir -p ./outputs/${ds}
 
-\```
+```
 
 
 
@@ -71,11 +72,11 @@ This step is to prepare the data and reuse the results of the decomposition of t
 
 
 
-\```bash
+```bash
 
 nohup python decompose_A_X.py --dataset $ds
 
-\```
+```
 
 
 
@@ -89,13 +90,13 @@ Next, you can search hyperparameters of LOC on the GPU ```$gpu_id``` with or wit
 
 
 
-\```bash
+```bash
 
 CUDA_VISIBLE_DEVICES=$gpu_id, nohup python LOC.py --dataset $ds --use_mask_ratio --botune &> ./outputs/${ds}/ULA_mask.out&
 
 CUDA_VISIBLE_DEVICES=$gpu_id, nohup python LOC.py --dataset $ds --botune &> ./outputs/${ds}/ULA_nomask.out&
 
-\```
+```
 
 
 
@@ -107,7 +108,7 @@ For example, if you want to run the LOC on Cora dataset, you can use the followi
 
 
 
-\```bash
+```bash
 
 CUDA_VISIBLE_DEVICES=$gpu_id, nohup python LOC.py --dataset Cora --lr1 5e-4 --lr2 5e-4 --wd 1e-5 --hid_dim 256 --proj_dim 256\ 
 
@@ -127,7 +128,7 @@ CUDA_VISIBLE_DEVICES=$gpu_id, nohup python LOC.py --dataset CiteSeer --lr1 5e-4 
 
 ​                         --num_epochs 300 --early_stop --patience 10 &> ./outputs/CiteSeer/LOC.out&  
 
-\```
+```
 
 
 
