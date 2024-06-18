@@ -53,6 +53,16 @@ def get_split(num_samples: int, train_ratio: float = 0.16, test_ratio: float = 0
         'test': indices[test_size + train_size:]
     }
 
+def edge_split(num_samples:int, train_ratio: float = 0.1, test_ratio: float = 0.8):
+    assert train_ratio + test_ratio <= 1
+    train_size = int(num_samples * train_ratio)
+    test_size = int(num_samples * test_ratio)
+    indices = torch.randperm(num_samples)
+    return {
+        'train': indices[:train_size],
+        'val': indices[train_size: test_size + train_size],
+        'test': indices[test_size + train_size:],
+    }
 
 def from_predefined_split(data):
     assert all([mask is not None for mask in [data.train_mask, data.test_mask, data.val_mask]])
@@ -93,6 +103,22 @@ class BaseEvaluator(ABC):
             result = self.evaluate(x, y, split, train_z, train_y, val_z, val_y, test_z, test_y)
         else:
             result = self.evaluate(x, y, split)
+        return result
+
+class LinkBaseEvaluator(ABC):
+    @abstractmethod
+    def evaluate(self, x=None, ei=None, neg_ei=None, split=None, neg_split=None, train_z=None, train_y=None, val_z=None, val_y=None, test_z=None, test_y=None) -> dict:
+        pass
+
+    def __call__(self, x=None, ei=None, neg_ei=None, split=None, neg_split=None, train_z=None, train_y=None, val_z=None, val_y=None, test_z=None, test_y=None) -> dict:
+        if split is not None:
+            for key in ['train', 'test', 'val']:
+                assert key in split
+                assert key in neg_split
+        if train_z is not None:
+            result = self.evaluate(x, ei, neg_ei, split, neg_split, train_z, train_y, val_z, val_y, test_z, test_y)
+        else:
+            result = self.evaluate(x, ei, neg_ei, split, neg_split)
         return result
 
 class WiKiBaseEvaluator(ABC):
@@ -172,14 +198,14 @@ class LogReg(nn.Module):
         super(LogReg, self).__init__()
         self.fc = nn.Linear(ft_in, nb_classes)
 
-        for m in self.modules():
-            self.weights_init(m)
+        # for m in self.modules():
+        #     self.weights_init(m)
 
-    def weights_init(self, m):
-        if isinstance(m, nn.Linear):
-            torch.nn.init.xavier_uniform_(m.weight.data)
-            if m.bias is not None:
-                m.bias.data.fill_(0.0)
+    # def weights_init(self, m):
+    #     if isinstance(m, nn.Linear):
+    #         torch.nn.init.xavier_uniform_(m.weight.data)
+    #         if m.bias is not None:
+    #             m.bias.data.fill_(0.0)
 
     def forward(self, seq):
         ret = self.fc(seq)
