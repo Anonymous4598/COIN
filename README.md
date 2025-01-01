@@ -2,7 +2,7 @@
 
 
 
-COIN is a graph contrastive learning framework with unified learnable augment in a continuous space.
+COIN: Graph Contrastive Learning with Orthogonal Continuous Augmentation and Information Balance.
 
 
 
